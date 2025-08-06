@@ -1,59 +1,65 @@
-# Icecreams
+# 🍦 Angular Cart App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.
+A simple and interactive cart application built with **Angular**, showcasing ice cream and popsicle selection, flavor customization, size-based pricing, cart handling, and billing page. 🎯
 
-## Development server
+![Home](Home.png)
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
+## 🛍️ Features
+
+- 🧁 **Ice Cream & Popsicle Pages** – Choose flavors and sizes dynamically
+- 💸 **Dynamic Pricing** – Size-based and quantity-based cart pricing
+- 🛒 **Cart Popup** – Real-time cart updates with quantity edits
+- 🧾 **Billing Page** – Form submission with total summary
+- 🎨 **Image Swap** – Flavor-based image changes
+
+---
+
+## 📂 Project Structure
+
+```plaintext
+src/
+├── app/
+│   ├── components/
+│   │   ├── home/
+│   │   ├── ice-cream/
+│   │   ├── popsicle/
+│   │   ├── cart-popup/
+│   │   └── billing/
+│   ├── services/
+│   └── app-routing.module.ts
+├── assets/
+│   └── images/
+├── environments/
+└── index.html
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🔧 Technologies Used
+* Angular 17+
 
-## Code scaffolding
+* TypeScript
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+* Html+Css
 
-```bash
-ng generate component component-name
-```
+* Bootstrap (Optional)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+* VS Code
 
-```bash
-ng generate --help
-```
+## 📸 Screenshots
 
-## Building
+![Icecream](Icecream.png)
+------------------------------------
+![Popsicle](Popsicle.png)
+------------------------------------
+![CreamSwap](CreamSwap.png)
+------------------------------------
+![PopSwap](PopSwap.png)
+------------------------------------
+![Cart](Cart.png)
+------------------------------------
+![Billing](Billing.png)
+------------------------------------
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🙌 Author
+Made with ❤️ by Sarathy Murugan
