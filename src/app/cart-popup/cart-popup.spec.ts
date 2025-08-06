@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CartPopup } from './cart-popup';
 
 describe('CartPopup', () => {

@@ -22,6 +22,8 @@ export class CartPopupComponent implements OnInit {
 
   @Output() close = new EventEmitter<void>();
 
+  showPopup: boolean = true;
+
   selectedSize: string = '';
   selectedFlavour: string = '';
   quantity: number = 1;
@@ -103,7 +105,9 @@ export class CartPopupComponent implements OnInit {
   this.close.emit();
 }
 
-  // closePopup() {
-  //   this.close.emit();
-  // }
+  closePopup() {
+  // Hide the popup — you can use a variable to control visibility
+  this.showPopup = false;
+}
+
 }

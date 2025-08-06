@@ -1,4 +1,5 @@
 <div class="popup">
+   <button class="close-btn" (click)="closePopup()">×</button>
   <h2>{{ productType }} Cart</h2>
   <img [src]="productImage" alt="Product" class="product-img" />
 
@@ -41,3 +42,4 @@
 
   <button class="checkout" (click)="checkout()">Checkout</button>
 </div>
+
