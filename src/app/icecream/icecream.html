@@ -1,0 +1,46 @@
+<header class="navbar">
+  <i class="fa fa-home"></i>
+  <span class="spacer"></span>
+  <i class="fa fa-shopping-cart"></i>
+</header>
+<div class="container">
+  <div class="cards">
+    <!-- Display the current ice cream image -->
+    <img [src]="currentImage" alt="Ice Cream Flavor" style="width: 300px; height: auto;" />
+
+    <div>size:
+      <select name="size" id="size" (change)="onSizeChange($event)">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+      </select>
+    </div><br>
+
+    <!-- Flavor selection buttons with color -->
+    <div class="flavour-buttons">Select Your Flavor: <br><br>
+      <button
+        class="flavour-btn"
+        [ngClass]="{selected: selectedFlavour === 'prune'}"
+        [style.backgroundColor]="'#0a5ff1'"
+        (click)="changeFlavor('prune')"
+      >Prune</button>
+      <button
+        class="flavour-btn"
+        [ngClass]="{selected: selectedFlavour === 'squash'}"
+        [style.backgroundColor]="'#f7eb09'"
+        style="color:#333"
+        (click)="changeFlavor('squash')"
+      >Squash</button>
+      <button
+        class="flavour-btn"
+        [ngClass]="{selected: selectedFlavour === 'cherry'}"
+        [style.backgroundColor]="'#dc143c'"
+        (click)="changeFlavor('cherry')"
+      >Cherry</button>
+    </div>
+
+    <button type="button" (click)="addToCart()" class="add-to-cart">Add to Cart</button>
+  </div>
+</div>
+
+<app-cart-popup *ngIf="showCartPopup" (close)="closeCartPopup()"></app-cart-popup>

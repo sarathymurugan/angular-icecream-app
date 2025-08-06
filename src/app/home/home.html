@@ -1,0 +1,25 @@
+<!-- home.component.html -->
+<div class="container">
+  <header class="navbar">
+    <i class="fa fa-home"></i>
+    <span class="spacer"></span>
+    <i class="fa fa-shopping-cart"></i>
+  </header>
+
+  <div class="content">
+    <h1><em>Infinite summer ice cream store</em></h1>
+    <h3>Which one do you want?</h3>
+
+    <div class="cards">
+      <div class="card" (click)="goToIceCream()">
+        <h4><em>IceCream</em></h4>
+        <img src="assets/prune.png" alt="Icecream" />
+      </div>
+
+      <div class="card" (click)="goToPopsicle()">
+        <h4><em>Popsicle</em></h4>
+        <img src="assets/lime.png" alt="Popsicle" />
+      </div>
+    </div>
+  </div>
+</div>

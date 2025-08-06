@@ -1,0 +1,43 @@
+<div class="popup">
+  <h2>{{ productType }} Cart</h2>
+  <img [src]="productImage" alt="Product" class="product-img" />
+
+  <div class="section">
+    <h3>Select Size</h3>
+    <div class="options">
+      <button
+        *ngFor="let size of availableSizes"
+        (click)="selectSize(size)"
+        [class.active]="selectedSize === size"
+      >
+        {{ size }}
+      </button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Select Flavour</h3>
+    <div class="options">
+      <button
+        *ngFor="let flavour of availableFlavours"
+        (click)="selectFlavour(flavour)"
+        [class.active]="selectedFlavour === flavour"
+      >
+        {{ flavour }}
+      </button>
+    </div>
+  </div>
+
+  <div class="section qty">
+    <h3>Quantity</h3>
+    <button (click)="decreaseQty()">-</button>
+    <span>{{ quantity }}</span>
+    <button (click)="increaseQty()">+</button>
+  </div>
+
+  <div class="section total">
+    <h3>Total: ${{ quantity * 10 }}</h3>
+  </div>
+
+  <button class="checkout" (click)="checkout()">Checkout</button>
+</div>

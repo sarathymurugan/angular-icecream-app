@@ -1,0 +1,51 @@
+<div class="billing-container">
+  <div class="billing-form">
+    <h2>Billing</h2>
+    <form>
+      <label>Full name</label>
+      <input type="text" placeholder="John Doe" />
+
+      <label>Email</label>
+      <input type="email" placeholder="example@email.com" />
+
+      <label>Billing address</label>
+      <input type="text" placeholder="123 Street, City" />
+
+      <label>Apt/Suite</label>
+      <div class="apt-group">
+        <input type="text" />
+        <label>
+          <br /><input type="checkbox" />
+          I can't find my address
+        </label>
+      </div>
+
+      <label>
+        <input type="checkbox" />
+        Use different shipping address
+      </label>
+
+      <button class="continue-btn">Continue to shipping</button>
+    </form>
+  </div>
+
+  <div class="order-summary" *ngIf="order">
+    <img [src]="order.image" alt="Product" />
+    <div>Product: {{ order.productType }}</div>
+    <div>Flavour: {{ order.flavour }}</div>
+    <div>Size: {{ order.size }}</div>
+    <div>Quantity: {{ order.quantity }}</div>
+    <div>Total: ${{ order.quantity * 10 }}</div>
+    <p class="note">Shipping and taxes will be calculated after an address is provided.</p>
+    <h4>Total: ${{ order.quantity * 10 }}</h4>
+    <div class="secure">
+      <p>🔒 Secured by Snipcart</p>
+      <div class="payment-icons">
+        <img src="assets/visa.png" alt="Visa" />
+        <img src="assets/mastercard.png" alt="Mastercard" />
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!order" class="order-summary">No order found.</div>
+</div>
