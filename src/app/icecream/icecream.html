@@ -1,15 +1,15 @@
 <header class="navbar">
-  <i class="fa fa-home"></i>
+  <i class="fa fa-home" aria-label="Home"></i>
   <span class="spacer"></span>
-  <i class="fa fa-shopping-cart"></i>
+  <i class="fa fa-shopping-cart" aria-label="Shopping Cart"></i>
 </header>
 <div class="container">
   <div class="cards">
     <!-- Display the current ice cream image -->
-    <img [src]="currentImage" alt="Ice Cream Flavor" style="width: 300px; height: auto;" />
+    <img [src]="currentImage" alt="IceCream Flavor" style="width: 300px; height: auto;" />
 
-    <div>size:
-      <select name="size" id="size" (change)="onSizeChange($event)">
+    <div>Size:
+      <select name="size" id="size" (change)="onSizeChange($event)" aria-label="Select size">
         <option value="small">Small</option>
         <option value="medium">Medium</option>
         <option value="large">Large</option>
@@ -21,20 +21,19 @@
       <button
         class="flavour-btn"
         [ngClass]="{selected: selectedFlavour === 'prune'}"
-        [style.backgroundColor]="'#0a5ff1'"
+        [style.backgroundColor]="' #0000FF'"
         (click)="changeFlavor('prune')"
       >Prune</button>
       <button
         class="flavour-btn"
         [ngClass]="{selected: selectedFlavour === 'squash'}"
-        [style.backgroundColor]="'#f7eb09'"
-        style="color:#333"
+        [style.backgroundColor]="'#FFFF00'"
         (click)="changeFlavor('squash')"
       >Squash</button>
       <button
         class="flavour-btn"
         [ngClass]="{selected: selectedFlavour === 'cherry'}"
-        [style.backgroundColor]="'#dc143c'"
+        [style.backgroundColor]="'#D20A2E'"
         (click)="changeFlavor('cherry')"
       >Cherry</button>
     </div>
@@ -44,3 +43,6 @@
 </div>
 
 <app-cart-popup *ngIf="showCartPopup" (close)="closeCartPopup()"></app-cart-popup>
+
+
+

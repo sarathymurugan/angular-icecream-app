@@ -21,7 +21,6 @@ body{
   justify-content: center;
   margin-top: 100px;
   margin-bottom: 100px;
-  
   /* Optional: set height only if parent has defined height */
   /* height: 50%; */
 }
@@ -55,7 +54,7 @@ body{
 
     .flavours {
   display: flex;
-  gap: 50px;
+  gap: 10px;
   margin-top: 10px;
 }
 
@@ -88,3 +87,4 @@ body{
     .add-to-cart:hover {
       transform: scale(1.1);
     }
+    

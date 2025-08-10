@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Icecream } from './icecream';
+import { IcecreamComponent } from './icecream';
 
 describe('Icecream', () => {
-  let component: Icecream;
-  let fixture: ComponentFixture<Icecream>;
+  let component: IcecreamComponent;
+  let fixture: ComponentFixture<IcecreamComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Icecream]
+      imports: [IcecreamComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Icecream);
+    fixture = TestBed.createComponent(IcecreamComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,3 +21,4 @@ describe('Icecream', () => {
     expect(component).toBeTruthy();
   });
 });
+

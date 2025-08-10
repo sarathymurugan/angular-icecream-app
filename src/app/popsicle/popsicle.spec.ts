@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Popsicle } from './popsicle';
+import { Popsiclecomponent } from './popsicle';
 
 describe('Popsicle', () => {
-  let component: Popsicle;
-  let fixture: ComponentFixture<Popsicle>;
+  let component: Popsiclecomponent;
+  let fixture: ComponentFixture<Popsiclecomponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Popsicle]
+      imports: [Popsiclecomponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Popsicle);
+    fixture = TestBed.createComponent(Popsiclecomponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,3 +21,4 @@ describe('Popsicle', () => {
     expect(component).toBeTruthy();
   });
 });
+

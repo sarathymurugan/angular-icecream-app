@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Billing } from './billing';
+import { BillingComponent } from './billing';
 
 describe('Billing', () => {
-  let component: Billing;
-  let fixture: ComponentFixture<Billing>;
+  let component: BillingComponent;
+  let fixture: ComponentFixture<BillingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Billing]
+      imports: [BillingComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Billing);
+    fixture = TestBed.createComponent(BillingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,3 +21,4 @@ describe('Billing', () => {
     expect(component).toBeTruthy();
   });
 });
+

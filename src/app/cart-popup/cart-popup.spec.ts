@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CartPopup } from './cart-popup';
+import { CartPopupComponent } from './cart-popup';
 
 describe('CartPopup', () => {
-  let component: CartPopup;
-  let fixture: ComponentFixture<CartPopup>;
+  let component: CartPopupComponent;
+  let fixture: ComponentFixture<CartPopupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CartPopup]
+      imports: [CartPopupComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CartPopup);
+    fixture = TestBed.createComponent(CartPopupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,3 +20,4 @@ describe('CartPopup', () => {
     expect(component).toBeTruthy();
   });
 });
+
