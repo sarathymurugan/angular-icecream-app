@@ -1,0 +1,50 @@
+<header class="navbar">
+  <i class="fa fa-home"></i>
+  <span class="spacer"></span>
+  <i class="fa fa-shopping-cart"></i>
+</header>
+<div class="container">
+  <div class="cards">
+    <!-- Display the current popsicle image -->
+    <img [src]="currentImage" alt="{{ selectedFlavour }} Popsicle Flavor" style="width: 300px; height: auto;" />
+
+         <div class="sizes">
+    <label>Size:</label>
+    <select [(ngModel)]="selectedSize">
+      <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
+    </select>
+  </div>
+  <div class="quantity">
+    <label>Quantity:</label>
+    <input type="number" [(ngModel)]="quantity" (ngModelChange)="updateQuantity($event)">
+  </div>
+
+    <!-- Flavor selection buttons with color -->
+    <div class="flavour-buttons">Select Your Flavor: <br><br>
+      <button
+        class="flavour-btn"
+        [ngClass]="{selected: selectedFlavour === 'lime'}"
+        [style.backgroundColor]="'#79c389'"
+        (click)="changeFlavor('lime')"
+      >Lime</button>
+      <button
+        class="flavour-btn"
+        [ngClass]="{selected: selectedFlavour === 'lettuce'}"
+        [style.backgroundColor]="'#00FF00'"
+        (click)="changeFlavor('lettuce')"
+      >Lettuce</button>
+      <button
+        class="flavour-btn"
+        [ngClass]="{selected: selectedFlavour === 'cherry1'}"
+        [style.backgroundColor]="'#dc143c'"
+        (click)="changeFlavor('cherry1')"
+      >Cherry</button>
+    </div>
+
+    <button type="button" (click)="addToCart()" class="add-to-cart">Add to Cart</button>
+  </div>
+</div>
+
+<app-cart-popup *ngIf="showCartPopup" (close)="closeCartPopup()"></app-cart-popup>
+
+

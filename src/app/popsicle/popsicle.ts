@@ -1,0 +1,88 @@
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CartService } from '../cart.service';
+import { CartPopupComponent } from '../cart-popup/cart-popup';
+
+@Component({
+  selector: 'app-popsicle',
+  standalone: true,
+  imports: [CommonModule, FormsModule, CartPopupComponent],
+  templateUrl: './popsicle.html',
+  styleUrls: ['./popsicle.css']
+})
+export class Popsiclecomponent {
+  @Input() productType: string = 'Popsicle';
+  @Input() flavourImages: { [flavour: string]: string } = {
+    lime: '/assets/lime.png',
+    lettuce: '/assets/lettuce.png',
+    cherry1: '/assets/cherry1.png',
+  };
+    @Input() flavours: string[] = ['lime', 'lettuce', 'cherry1'];
+  @Input() sizes: string[] = ['small', 'medium', 'large'];
+  
+  currentImage = this.flavourImages['lime'];
+  selectedFlavour: string = '';
+  selectedImage: string = '';
+  selectedSize = 'small';
+  selectedQuantity = 1;
+  quantity : number = 1;
+  showCartPopup = false;
+  showSuccessMessage = false;
+
+  constructor(private cartService: CartService) {}
+
+  ngOnInit(): void {
+    if (this.flavours && this.flavours.length > 0) {
+      this.selectedFlavour = this.flavours[0];
+      this.selectedImage = this.flavourImages[this.selectedFlavour];
+      this.selectedSize= this.sizes[0];
+
+    }
+  }
+
+  changeFlavor(flavour: string) {
+    this.selectedFlavour = flavour;
+   this.currentImage = this.flavourImages[flavour] || '';
+  }
+
+  onSizeChange(event: Event) {
+    const select = event.target as HTMLSelectElement;
+    this.selectedSize = select.value;
+  }
+
+  updateQuantity(quantity: number): void {
+    this.quantity = quantity;
+  }
+
+  addToCart() {
+     if (this.quantity <= 0) {
+      alert('Please enter a valid quantity');
+      return;
+    }
+
+    // Add to cart logic here
+    console.log(`Adding ${this.quantity} ${this.selectedSize} ${this.selectedFlavour} popsicles to cart`);
+
+    this.cartService.setCartData({
+      productType: 'Popsicle',
+      flavour: this.selectedFlavour,
+      size: this.selectedSize,
+      quantity: this.selectedQuantity,
+      image: this.currentImage
+    });
+    this.showCartPopup = true;
+    this.showSuccessMessage = true;
+    setTimeout(() => {
+      this.showSuccessMessage = false;
+    }, 2000);
+  }
+
+  closeCartPopup() {
+  this.showCartPopup = false;
+}
+}
+
+
+
+

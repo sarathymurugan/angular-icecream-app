@@ -1,0 +1,16 @@
+<!-- product.component.html -->
+<div class="product">
+  <h2>{{ productType }}</h2>
+  <img [src]="flavourImages[selectedFlavour]" alt="{{ selectedFlavour }} {{ productType }} image">
+  <div class="sizes">
+    <label>Size:</label>
+    <select [(ngModel)]="selectedSize">
+      <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
+    </select>
+  </div>
+  <div class="quantity">
+    <label>Quantity:</label>
+    <input type="number" [(ngModel)]="quantity">
+  </div>
+  <button (click)="addToCart()">Add to Cart</button>
+</div>

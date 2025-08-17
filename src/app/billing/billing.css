@@ -1,0 +1,100 @@
+.billing-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  gap: 40px;
+}
+
+.billing-form {
+  flex: 2;
+  background: #fff;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.billing-form h2 {
+  margin-bottom: 20px;
+}
+
+.billing-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.billing-form input[type="text"],
+.billing-form input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.apt-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.continue-btn {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  background: #0047ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.order-summary {
+  flex: 1;
+  background: #fafafa;
+  padding: 20px;
+  border-left: 1px solid #ccc;
+}
+
+.order-summary h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.order-summary h4 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.secure {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.payment-icons img {
+  width: 40px;
+  margin: 10px 5px 0;
+}
+
+.error-message {
+  color: red;
+}
+
+.success-message {
+  color: green;
+}
+
