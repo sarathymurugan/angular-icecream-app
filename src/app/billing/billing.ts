@@ -33,16 +33,16 @@ export class BillingComponent implements OnInit {
   }
 
   confirmOrder() {
-   if (!this.fullName || !this.email || !this.address) {
+    if (!this.fullName || !this.email || !this.address) {
   this.showErrorMessage = true;
   this.errorMessage = 'Please fill in all required fields.';
   
   setTimeout(() => {
     this.showErrorMessage = false;
     this.errorMessage = '';
-  }, 2000); // 2000 milliseconds = 2 seconds
+  }, 2000); 
   
-  return; // Exit the function early
+  return; 
 }
     if (!this.order) {
       this.showErrorMessage = true;
@@ -62,12 +62,10 @@ Order confirmed.
   }
 
   saveOrderToBackend(summary: string) {
-    // Implement API call to save order
-    // For demonstration purposes, assume it's a success
     this.showSuccessMessage = true;
     this.successMessage = 'Order confirmed!';
 setTimeout(() => {
-  this.router.navigate(['/']); // Navigate to home page after delay
-}, 3000); // 3000 milliseconds = 3 seconds   
+  this.router.navigate(['/']); 
+}, 3000); 
   }
 }

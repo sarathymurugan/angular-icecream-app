@@ -105,7 +105,3 @@
   margin-left: 2px;
 }
 
-/* Smooth transition for error messages */
-.error-message {
-  transition: opacity 0.3s ease;
-}

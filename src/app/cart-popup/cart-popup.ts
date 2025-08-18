@@ -86,13 +86,13 @@ export class CartPopupComponent implements OnInit {
 
   increaseQty() {
   this.quantity++;
-  this.updateCartData(); // Add this to persist changes
+  this.updateCartData(); 
 }
 
 decreaseQty() {
   if (this.quantity > 1) {
     this.quantity--;
-    this.updateCartData(); // Add this to persist changes
+    this.updateCartData(); 
   }
 }
 
@@ -105,7 +105,6 @@ checkout() {
     image: this.productImage
   };
 
-  // Create a formatted message
   const message = [
     '=== ORDER SUMMARY ===',
     `Product: ${this.productType}`,

@@ -15,9 +15,9 @@ export class Product {
   @Input() flavours: string[] = [];
   @Input() sizes: string[] = [];
 
-  selectedFlavour: string = ''; // Add type annotation here
-  selectedSize: string = ''; // Add type annotation here
-  quantity: number = 1; // Default quantity
+  selectedFlavour: string = ''; 
+  selectedSize: string = ''; 
+  quantity: number = 1; 
   constructor() { }
 
   ngOnInit(): void {
@@ -37,7 +37,6 @@ export class Product {
       return;
     }
 
-    // Add to cart logic here
     console.log(`Adding ${this.quantity} ${this.selectedSize} ${this.selectedFlavour} ${this.productType} to cart`);
   }
 }

@@ -9,7 +9,7 @@
 </header>
 <div class="container">
   <div class="cards">
-    <!-- Display the current ice cream image -->
+  
     <img [src]="currentImage" alt="IceCream Flavor" style="width: 300px; height: auto;" /> 
 
      <div class="sizes">
@@ -23,7 +23,7 @@
     <input type="number" [(ngModel)]="quantity" (ngModelChange)="updateQuantity($event)" min="1" step="1">
   </div>
 
-    <!-- Flavor selection buttons with color -->
+  
     <div class="flavour-section">
   <h3>Select Your Flavor:</h3>
   <div class="flavour-buttons">

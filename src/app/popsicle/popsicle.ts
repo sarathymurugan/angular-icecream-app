@@ -60,7 +60,6 @@ export class Popsiclecomponent {
       return;
     }
 
-    // Add to cart logic here
     console.log(`Adding ${this.quantity} ${this.selectedSize} ${this.selectedFlavour} ${this.productType} to cart`);
 
     this.cartService.setCartData({

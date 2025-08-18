@@ -21,8 +21,7 @@ body{
   justify-content: center;
   margin-top: 100px;
   margin-bottom: 100px;
-  /* Optional: set height only if parent has defined height */
-  /* height: 50%; */
+  
 }
 
 .cards {
@@ -34,14 +33,13 @@ body{
   background-color: antiquewhite;
 }
 
-/* Style the image inside the card */
 .cards img {
-  max-width: 100%;   /* Ensures image fits within card */
-  max-height: 200px; /* Limits image height */
+  max-width: 100%;   
+  max-height: 200px;
   height: auto;
   width: auto;
-  object-fit: contain; /* Now applied correctly */
-  border-radius: 10px; /* Optional: for visual appeal */
+  object-fit: contain; 
+  border-radius: 10px; 
 }   
 
     select {
@@ -95,16 +93,16 @@ body{
     .quantity {
   margin-top: 10px;
   display: flex;
-  flex-direction: row;        /* Changed from 'column' to 'row' */
-  align-items: center;        /* Vertically centers items */
-  gap: 10px;                  /* Adds space between label and input */
+  flex-direction: row;        
+  align-items: center;        
+  gap: 10px;                  
   font-size: 16px;
   justify-content: center;
 }   
 
     .quantity input {
   padding: 8px;
-  width: 50px;                /* Increased from 10px (10px is too small) */
+  width: 50px;               
   text-align: center;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -140,8 +138,8 @@ body{
   border-radius: 20px;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-width: 90px;       /* keeps them equal width */
-  color: #fff;           /* default text color */
+  min-width: 90px;      
+  color: #fff;          
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 

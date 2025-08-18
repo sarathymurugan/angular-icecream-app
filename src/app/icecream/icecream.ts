@@ -66,7 +66,7 @@ export class IcecreamComponent {
     productType: 'Ice Cream',
     flavour: this.selectedFlavour,
     size: this.selectedSize,
-    quantity: this.quantity,  // Changed from selectedQuantity to quantity
+    quantity: this.quantity, 
     image: this.currentImage
   });
   this.showCartPopup = true;
