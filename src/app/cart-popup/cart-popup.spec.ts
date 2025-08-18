@@ -77,6 +77,11 @@ describe('CartPopupComponent', () => {
     expect(quantityElement.textContent).toBe('1');
   });
 
+  it('should calculate totalPrice correctly', () => {
+  component.quantity = 2;
+  expect(component.totalPrice).toBe(20); 
+});
+
   it('should emit close event when close button is clicked', () => {
     const closeButton = fixture.nativeElement.querySelector('.close-btn');
     spyOn(component.close, 'emit');

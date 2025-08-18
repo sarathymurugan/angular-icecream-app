@@ -44,28 +44,34 @@ export class BillingComponent implements OnInit {
   
   return; 
 }
-    if (!this.order) {
+    if (!this.order || !this.order.productType) {
       this.showErrorMessage = true;
       this.errorMessage = 'No order found. Please try again.';
       return;
     }
-    const summary = `
-${this.fullName} ordered this:
-Product: ${this.order.productType}
-Flavour: ${this.order.flavour}
-Size: ${this.order.size}
-Quantity: ${this.order.quantity}
-Total: $${Number(this.order.quantity) * 10}
-Order confirmed.
-    `;
+
+   const total = Number(this.order.quantity) * 10;
+if (isNaN(total)) {
+  console.error('Invalid quantity value:', this.order.quantity);
+  return;
+}
+
+const summary = `
+  ${this.fullName} ordered:
+  Product: ${this.order.productType || 'N/A'}
+  Flavor: ${this.order.flavour || 'N/A'}
+  Size: ${this.order.size || 'N/A'}
+  Quantity: ${this.order.quantity}
+  Total: $${total.toFixed(2)}
+`;
     this.saveOrderToBackend(summary);
   }
 
   saveOrderToBackend(summary: string) {
     this.showSuccessMessage = true;
-    this.successMessage = 'Order confirmed!';
+    this.successMessage = 'Order Confirmed!';
 setTimeout(() => {
   this.router.navigate(['/']); 
-}, 3000); 
+}, 9000); 
   }
 }

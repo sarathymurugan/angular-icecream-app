@@ -1,5 +1,4 @@
 <div class="billing-container">
-  <!-- Left: Billing Form -->
   <div class="billing-form">
     <h2>Billing</h2>
 <form (ngSubmit)="confirmOrder()" autocomplete="off">
@@ -30,7 +29,6 @@
     </form>
   </div>
 
-  <!-- Right: Order Summary -->
   <div class="order-summary" *ngIf="order; else noOrder">
     <img [src]="order.image" alt="Product" style="max-width: 100px; margin-bottom: 16px;" />
     <div class="summary-item"><span>Product:</span> <span>{{ order.productType }}</span></div>
@@ -53,6 +51,7 @@
 </div>
 
 <div *ngIf="showSuccessMessage">
+   <span class="checkmark">✓</span>
   <p class="success-message">{{ successMessage }}</p>
 </div>
   </div>

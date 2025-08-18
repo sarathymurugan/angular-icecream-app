@@ -1,14 +1,35 @@
 import { TestBed } from '@angular/core/testing';
 import { IcecreamComponent } from './icecream';
 import { CartService } from '../cart.service';
-import { of } from 'rxjs';
 import { ComponentFixture } from '@angular/core/testing';
+
+
+providers: [
+  { provide: CartService, 
+    useValue: {
+      addCartItem: jasmine.createSpy('addCartItem')
+    }
+  }
+]
 
 describe('IcecreamComponent', () => {
   let component: IcecreamComponent;
   let fixture: ComponentFixture<IcecreamComponent>;
   let cartService: CartService;
 
+
+  const mockCartService = {
+  setCartData: jasmine.createSpy('setCartData')
+};
+
+// In test:
+expect(mockCartService.setCartData).toHaveBeenCalledWith({
+  productType: 'Ice Cream',
+  flavour: 'prune',
+  size: 'small',
+  quantity: 1,
+  image: '/assets/prune.png'
+});
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -45,6 +66,17 @@ describe('IcecreamComponent', () => {
     expect(component.selectedFlavour).toBe('Vanilla');
     expect(component.selectedSize).toBe('Small');
   });
+
+  it('should show error for invalid quantity', () => {
+  component.quantity = 0;
+  component.addToCart();
+  expect(component.showErrorMessage).toBeTrue();
+});
+
+it('should update image when flavour changes', () => {
+  component.changeFlavor('cherry');
+  expect(component.currentImage).toBe('/assets/cherry.png');
+});
 
   it('should change flavour', () => {
     component.changeFlavor('Grape');

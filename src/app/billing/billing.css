@@ -105,3 +105,25 @@
   margin-left: 2px;
 }
 
+input.ng-invalid.ng-touched {
+  border-color: #ff4444;
+  background-color: #ffeeee;
+}
+
+.error-message {
+  background: #ffebee;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.error-message, .success-message {
+  transition: opacity 0.3s ease;
+}
+
+.checkmark {
+  display: block;
+  font-size: 5rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+}

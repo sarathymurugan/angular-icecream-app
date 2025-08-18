@@ -1,15 +1,45 @@
-<div class="product">
-  <h2>{{ productType }}</h2>
-  <img [src]="flavourImages[selectedFlavour]" alt="{{ selectedFlavour }} {{ productType }} image">
-  <div class="sizes">
-    <label>Size:</label>
-    <select [(ngModel)]="selectedSize">
-      <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
-    </select>
+<div class="container">
+  <div class="cards">
+    <img [src]="currentImage" [alt]="selectedFlavour + ' ' + productType" style="width: 300px; height: auto;">
+
+    <div class="sizes">
+      <label>Size:</label>
+      <select [(ngModel)]="selectedSize">
+        <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
+      </select>
+    </div>
+
+    <div class="quantity">
+      <label>Quantity:</label>
+      <input type="number" [(ngModel)]="quantity" 
+             (ngModelChange)="updateQuantity($event)" 
+             min="1" max="100" step="1">
+    </div>
+
+    <div class="container">
+  <div class="cards">
+    
+    <div class="flavour-section">
+      <h3>Select Your Flavor:</h3>
+      <div class="flavour-buttons">
+        <button *ngFor="let flavour of flavours"
+                class="flavour-btn"
+                [ngClass]="{selected: selectedFlavour === flavour}"
+                [style.backgroundColor]="getFlavorColor(flavour)"
+                (click)="changeFlavor(flavour)">
+          {{ flavour }}
+        </button>
+      </div>
+    </div>
+
+    <button type="button" (click)="addToCart()" class="add-to-cart">
+      Add to Cart
+    </button>
+
+    <div *ngIf="showErrorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <!-- <app-cart-popup *ngIf="showCartPopup" (close)="closeCartPopup()"></app-cart-popup> -->
   </div>
-  <div class="quantity">
-    <label>Quantity:</label>
-    <input type="number" [(ngModel)]="quantity">
-  </div>
-  <button (click)="addToCart()">Add to Cart</button>
 </div>

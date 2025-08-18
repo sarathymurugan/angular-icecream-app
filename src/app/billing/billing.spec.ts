@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { BillingComponent } from './billing';
 import { CartService } from '../cart.service';
-import { of } from 'rxjs';
 import { ComponentFixture } from '@angular/core/testing';
 
 describe('BillingComponent', () => {
@@ -14,7 +13,7 @@ describe('BillingComponent', () => {
       declarations: [ BillingComponent ],
       providers: [
         { provide: CartService, useValue: {
-          getCartData: () => of({
+          getCartData: () =>({
             productType: 'Test Product',
             flavour: 'Test Flavour',
             size: 'Test Size',

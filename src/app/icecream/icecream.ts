@@ -29,6 +29,7 @@ export class IcecreamComponent {
   quantity:number=1;
   showCartPopup = false;
   showSuccessMessage = false;
+  showErrorMessage = false;
 
   constructor(private cartService: CartService) {}
 

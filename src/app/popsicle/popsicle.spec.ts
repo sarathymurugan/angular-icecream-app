@@ -63,6 +63,19 @@ describe('PopsicleComponent', () => {
     });
   });
 
+
+  it('should update image when flavour changes', () => {
+  component.changeFlavor('cherry1');
+  expect(component.currentImage).toBe('/assets/cherry1.png');
+});
+
+it('should close popup', () => {
+  component.showCartPopup = true;
+  component.closeCartPopup();
+  expect(component.showCartPopup).toBeFalse();
+});
+
+
    it('should not add item to cart with invalid quantity', () => {
     component.selectedFlavour = 'Orange';
     component.selectedSize = 'Small';

@@ -37,6 +37,8 @@ export class Popsiclecomponent {
       this.selectedSize= this.sizes[0];
   }
 
+  
+
   changeFlavor(flavour: string) {
     this.selectedFlavour = flavour;
    this.currentImage = this.flavourImages[flavour] || '';
@@ -48,7 +50,7 @@ export class Popsiclecomponent {
   }
 
   updateQuantity(quantity: number): void {
-    this.quantity = Math.max(1, quantity);
+  this.quantity = Math.min(100, Math.max(1, quantity));
      if (quantity < 1) {
     alert('Quantity cannot be less than 1');
   }
