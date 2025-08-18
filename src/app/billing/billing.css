@@ -35,7 +35,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 50%;
+  width: 50%; /* Changed from 50% to use full width */
+  gap: 20px; /* Adds space between elements */
 }
 
 .continue-btn {
@@ -98,3 +99,13 @@
   color: green;
 }
 
+.required-asterisk {
+  color: red;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+/* Smooth transition for error messages */
+.error-message {
+  transition: opacity 0.3s ease;
+}

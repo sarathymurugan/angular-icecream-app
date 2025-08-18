@@ -2,6 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { CartPopupComponent } from './cart-popup';
 import { CartService } from '../cart.service';
 import { of } from 'rxjs';
+import { ComponentFixture } from '@angular/core/testing';
+import { Component } from '@angular/core';
 
 describe('CartPopupComponent', () => {
   let component: CartPopupComponent;

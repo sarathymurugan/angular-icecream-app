@@ -81,4 +81,20 @@
   color: #444;
 }
 
+.simple-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4CAF50;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  max-width: 80%;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
 

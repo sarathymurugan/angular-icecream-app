@@ -49,7 +49,7 @@ export class CartPopupComponent implements OnInit {
         : ['small', 'large'];
       this.availableFlavours = this.productType === 'Ice Cream'
         ? ['prune', 'squash', 'cherry']
-        : ['lime', 'lettuce', 'cherry1'];
+        : ['lime', 'lettuce', 'cherry'];
     }
 
     if (!this.selectedSize && this.availableSizes.length > 0) {
@@ -74,17 +74,30 @@ export class CartPopupComponent implements OnInit {
     this.productImage = this.flavourImages[this.selectedFlavour] || '';
   }
 
+  private updateCartData() {
+  this.cartService.setCartData({
+    productType: this.productType,
+    flavour: this.selectedFlavour,
+    size: this.selectedSize,
+    quantity: this.quantity,
+    image: this.productImage
+  });
+}
+
   increaseQty() {
-    this.quantity++;
-  }
+  this.quantity++;
+  this.updateCartData(); // Add this to persist changes
+}
 
-  decreaseQty() {
-    if (this.quantity > 1) this.quantity--;
+decreaseQty() {
+  if (this.quantity > 1) {
+    this.quantity--;
+    this.updateCartData(); // Add this to persist changes
   }
-  
+}
 
-  checkout() {
-    const cartData = {
+checkout() {
+  const cartData = {
     productType: this.productType,
     flavour: this.selectedFlavour,
     size: this.selectedSize,
@@ -92,19 +105,25 @@ export class CartPopupComponent implements OnInit {
     image: this.productImage
   };
 
-  alert(`Proceeding to checkout with:
-  \nProduct: ${this.productType}
-  \nSize: ${this.selectedSize}
-  \nFlavour: ${this.selectedFlavour}
-  \nQuantity: ${this.quantity}
-  \nTotal Price: ${this.totalPrice}`);
+  // Create a formatted message
+  const message = [
+    '=== ORDER SUMMARY ===',
+    `Product: ${this.productType}`,
+    `Flavor: ${this.selectedFlavour.charAt(0).toUpperCase() + this.selectedFlavour.slice(1)}`,
+    `Size: ${this.selectedSize.charAt(0).toUpperCase() + this.selectedSize.slice(1)}`,
+    `Quantity: ${this.quantity}`,
+    `Total: $${this.totalPrice.toFixed(2)}`,
+    '',
+    'Proceeding to checkout...'
+  ].join('\n');
+
+  alert(message);
 
   console.log('📦 Setting cart data:', cartData);
   this.cartService.setCartData(cartData);
   this.router.navigate(['/billing']);
   this.close.emit();
 }
-
   closePopup() {
   this.showPopup = false;
 }

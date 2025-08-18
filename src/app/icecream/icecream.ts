@@ -26,7 +26,6 @@ export class IcecreamComponent {
   selectedFlavour : string = 'prune';
   selectedImage: string='';
   selectedSize : string = '';
-  selectedQuantity : number = 1;
   quantity:number=1;
   showCartPopup = false;
   showSuccessMessage = false;
@@ -50,29 +49,32 @@ export class IcecreamComponent {
   }
 
    updateQuantity(quantity: number): void {
-    this.quantity = quantity;
+    this.quantity =  Math.max(1, quantity);
+     if (quantity < 1) {
+    alert('Quantity cannot be less than 1');
+  }
   }
 
   addToCart() {
-    if (this.quantity <= 0) {
-      alert('Please enter a valid quantity');
-      return;
-    }
-    console.log(`Adding ${this.quantity} ${this.selectedFlavour} ${this.productType} to cart`);
-  
-    this.cartService.setCartData({
-      productType: 'Ice Cream',
-      flavour: this.selectedFlavour,
-      size: this.selectedSize,
-      quantity: this.selectedQuantity,
-      image: this.currentImage
-    });
-    this.showCartPopup = true;
-    this.showSuccessMessage = true;
-    setTimeout(() => {
-      this.showSuccessMessage = false;
-    }, 2000);
+  if (this.quantity <= 0) {
+    alert('Please enter a valid quantity');
+    return;
   }
+  console.log(`Adding ${this.quantity} ${this.selectedSize} ${this.selectedFlavour} ${this.productType} to cart`);
+
+  this.cartService.setCartData({
+    productType: 'Ice Cream',
+    flavour: this.selectedFlavour,
+    size: this.selectedSize,
+    quantity: this.quantity,  // Changed from selectedQuantity to quantity
+    image: this.currentImage
+  });
+  this.showCartPopup = true;
+  this.showSuccessMessage = true;
+  setTimeout(() => {
+    this.showSuccessMessage = false;
+  }, 2000);
+}
 
   closeCartPopup() {
     this.showCartPopup = false;

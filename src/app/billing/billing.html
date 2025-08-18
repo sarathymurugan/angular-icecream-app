@@ -2,25 +2,26 @@
   <!-- Left: Billing Form -->
   <div class="billing-form">
     <h2>Billing</h2>
-    <form (ngSubmit)="confirmOrder()" autocomplete="off">
-      <label>Full name</label>
-      <input type="text" placeholder="John Doe" [(ngModel)]="fullName" name="fullName" required />
+<form (ngSubmit)="confirmOrder()" autocomplete="off">
+  <label>Full name <span class="required-asterisk">*</span></label>
+  <input type="text" placeholder="John Doe" [(ngModel)]="fullName" name="fullName" required />
 
-      <label>Email</label>
-      <input type="email" placeholder="example@email.com" [(ngModel)]="email" name="email" required />
+  <label>Email <span class="required-asterisk">*</span></label>
+  <input type="email" placeholder="example@email.com" [(ngModel)]="email" name="email" required />
 
-      <label>Billing address</label>
-      <input type="text" placeholder="123 Street, City" [(ngModel)]="address" name="address" required />
-
-      <label>Apt/Suite</label>
+  <label>Billing address <span class="required-asterisk">*</span></label>
+  <input type="text" placeholder="123 Street, City" [(ngModel)]="address" name="address" required />
+  
       <div class="apt-group">
-        <input type="text" [(ngModel)]="apt" name="apt" />
-        <label>
-          <br /><input type="checkbox" [(ngModel)]="cantFindAddress" name="cantFindAddress" />
-          I can't find my address
-        </label>
-      </div>
-
+        <div class="apt-input">
+         <label>Apt/Suite</label>
+          <input type="text" [(ngModel)]="apt" name="apt" />
+        </div>
+          <label class="address-checkbox">
+           <input type="checkbox" [(ngModel)]="cantFindAddress" name="cantFindAddress" />
+               I can't find my address
+          </label>
+        </div>
       <label>
         <input type="checkbox" [(ngModel)]="useDifferentShipping" name="useDifferentShipping" />
         Use different shipping address

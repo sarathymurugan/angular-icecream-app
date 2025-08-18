@@ -16,16 +16,15 @@ export class Popsiclecomponent {
   @Input() flavourImages: { [flavour: string]: string } = {
     lime: '/assets/lime.png',
     lettuce: '/assets/lettuce.png',
-    cherry1: '/assets/cherry1.png',
+    cherry: '/assets/cherry1.png',
   };
     @Input() flavours: string[] = ['lime', 'lettuce', 'cherry1'];
-  @Input() sizes: string[] = ['small', 'medium', 'large'];
+  @Input() sizes: string[] = ['small', 'large'];
   
   currentImage = this.flavourImages['lime'];
-  selectedFlavour: string = '';
+  selectedFlavour: string = 'lime';
   selectedImage: string = '';
-  selectedSize = 'small';
-  selectedQuantity = 1;
+  selectedSize : string = '';
   quantity : number = 1;
   showCartPopup = false;
   showSuccessMessage = false;
@@ -33,12 +32,9 @@ export class Popsiclecomponent {
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    if (this.flavours && this.flavours.length > 0) {
       this.selectedFlavour = this.flavours[0];
       this.selectedImage = this.flavourImages[this.selectedFlavour];
       this.selectedSize= this.sizes[0];
-
-    }
   }
 
   changeFlavor(flavour: string) {
@@ -52,7 +48,10 @@ export class Popsiclecomponent {
   }
 
   updateQuantity(quantity: number): void {
-    this.quantity = quantity;
+    this.quantity = Math.max(1, quantity);
+     if (quantity < 1) {
+    alert('Quantity cannot be less than 1');
+  }
   }
 
   addToCart() {
@@ -62,13 +61,13 @@ export class Popsiclecomponent {
     }
 
     // Add to cart logic here
-    console.log(`Adding ${this.quantity} ${this.selectedSize} ${this.selectedFlavour} popsicles to cart`);
+    console.log(`Adding ${this.quantity} ${this.selectedSize} ${this.selectedFlavour} ${this.productType} to cart`);
 
     this.cartService.setCartData({
       productType: 'Popsicle',
       flavour: this.selectedFlavour,
       size: this.selectedSize,
-      quantity: this.selectedQuantity,
+      quantity: this.quantity,
       image: this.currentImage
     });
     this.showCartPopup = true;

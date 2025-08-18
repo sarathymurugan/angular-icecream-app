@@ -10,7 +10,7 @@
 <div class="container">
   <div class="cards">
     <!-- Display the current ice cream image -->
-    <img [src]="currentImage" alt="IceCream Flavor" style="width: 300px; height: auto;" />
+    <img [src]="currentImage" alt="IceCream Flavor" style="width: 300px; height: auto;" /> 
 
      <div class="sizes">
     <label>Size:</label>
@@ -20,35 +20,34 @@
   </div>
   <div class="quantity">
     <label>Quantity:</label>
-    <input type="number" [(ngModel)]="quantity" (ngModelChange)="updateQuantity($event)">
+    <input type="number" [(ngModel)]="quantity" (ngModelChange)="updateQuantity($event)" min="1" step="1">
   </div>
 
     <!-- Flavor selection buttons with color -->
-    <div class="flavour-buttons">Select Your Flavor: <br><br>
-      <button
-        class="flavour-btn"
-        [ngClass]="{selected: selectedFlavour === 'prune'}"
-        [style.backgroundColor]="' #0000FF'"
-        (click)="changeFlavor('prune')"
-      >Prune</button>
-      <button
-        class="flavour-btn"
-        [ngClass]="{selected: selectedFlavour === 'squash'}"
-        [style.backgroundColor]="'#FFFF00'"
-        (click)="changeFlavor('squash')"
-      >Squash</button>
-      <button
-        class="flavour-btn"
-        [ngClass]="{selected: selectedFlavour === 'cherry'}"
-        [style.backgroundColor]="'#D20A2E'"
-        (click)="changeFlavor('cherry')"
-      >Cherry</button>
-    </div>
-
-    <button type="button" (click)="addToCart()" class="add-to-cart">Add to Cart</button>
+    <div class="flavour-section">
+  <h3>Select Your Flavor:</h3>
+  <div class="flavour-buttons">
+    <button
+      class="flavour-btn"
+      [ngClass]="{selected: selectedFlavour === 'prune'}"
+      [style.backgroundColor]="'#0000FF'"
+      (click)="changeFlavor('prune')"
+    >Prune</button>
+    <button
+      class="flavour-btn"
+      [ngClass]="{selected: selectedFlavour === 'squash'}"
+      [style.backgroundColor]="'#FFFF00'"
+      (click)="changeFlavor('squash')"
+    >Squash</button>
+    <button
+      class="flavour-btn"
+      [ngClass]="{selected: selectedFlavour === 'cherry'}"
+      [style.backgroundColor]="'#D20A2E'"
+      (click)="changeFlavor('cherry')"
+    >Cherry</button>
   </div>
 </div>
-
+<button type="button" (click)="addToCart()" class="add-to-cart">Add to Cart</button>
 <app-cart-popup *ngIf="showCartPopup" (close)="closeCartPopup()"></app-cart-popup>
 
 

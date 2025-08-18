@@ -47,7 +47,7 @@ describe('IcecreamComponent', () => {
   });
 
   it('should change flavour', () => {
-    component.changeFlavour('Grape');
+    component.changeFlavor('Grape');
     expect(component.selectedFlavour).toBe('Grape');
   });
 

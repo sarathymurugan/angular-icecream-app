@@ -33,11 +33,17 @@ export class BillingComponent implements OnInit {
   }
 
   confirmOrder() {
-    if (!this.fullName || !this.email || !this.address) {
-      this.showErrorMessage = true;
-      this.errorMessage = 'Please fill in all required fields.';
-      return;
-    }
+   if (!this.fullName || !this.email || !this.address) {
+  this.showErrorMessage = true;
+  this.errorMessage = 'Please fill in all required fields.';
+  
+  setTimeout(() => {
+    this.showErrorMessage = false;
+    this.errorMessage = '';
+  }, 2000); // 2000 milliseconds = 2 seconds
+  
+  return; // Exit the function early
+}
     if (!this.order) {
       this.showErrorMessage = true;
       this.errorMessage = 'No order found. Please try again.';
